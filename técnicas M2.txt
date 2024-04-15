@@ -1,0 +1,119 @@
+---
+title: "Tabla de Productos y Precios"
+authors:
+  - name: Santiago Diez
+  - name: Juan Rivero
+  - name: Agustín Rodriguez
+  - name: Tomás Boismene
+  - name: Lucas Patiri
+  - name: Tomás Cerutti
+abstract: "Este documento presenta una tabla de productos y precios."
+bibliography: references.bib
+biblio-style: apa
+header-includes:
+  - \usepackage{float}
+output: rticles::arxiv_article
+---
+
+
+\Large Tutorial básico de R
+
+# Asignación de variables
+## Puedes asignar valores a variables utilizando el operador <- o =
+x <- 5
+y = 10
+
+# Operaciones aritméticas
+suma <- 3 + 4
+resta <- 7 - 2
+multiplicacion <- 5 * 2
+division <- 10 / 2
+potenciacion <- 2^3
+
+
+# Gráficos
+## R es conocido por su capacidad para generar gráficos de alta calidad.
+## Puedes crear gráficos utilizando funciones como plot(), hist(), barplot(), entre otras.
+```{r costos, fig.pos='H', echo=FALSE, fig.cap="Productos y Precios"}
+productos <- data.frame(
+  Producto = c("PC1", "PC2", "PC3", "PC4"),
+  Precio = c(1000000, 800000, 1200000, 950000)
+)
+
+barplot(productos$Precio, names.arg = productos$Producto,
+        main = "Productos y Precios",
+        xlab = "Producto", ylab = "Precio",
+        col = "skyblue", border = "black")
+```
+
+# Funciones
+## R tiene muchas funciones integradas que puedes usar para realizar tareas específicas.
+## Por ejemplo, la función mean() calcula la media de un conjunto de números.
+numeros <- c(1, 2, 3, 4, 5)
+media <- mean(numeros)
+# Imprimir la tabla
+
+```{r fig2}
+
+print(productos)
+
+```
+
+# Data frames
+## Los data frames son estructuras de datos bidimensionales que se usan para almacenar conjuntos de datos.
+## Puedes crear data frames utilizando la función data.frame().
+edades <- c(25, 30, 35)
+nombres <- c("Juan", "María", "Pedro")
+df <- data.frame(Edad = edades, Nombre = nombres)
+
+# Indexación de vectores y data frames
+## Puedes acceder a elementos individuales de un vector o data frame utilizando corchetes [].
+
+
+# VECTORES
+## Un vector es una estructura de datos que almacena números de doble precisión
+
+```{r}
+mi_vector_a <- c(1,12,54,23,12,65,34,12,56,66)
+mi_vector_b <- seq(1:10) 
+mi_vector_a
+mi_vector_b
+```
+# Indexación de vectores y data frames
+## Puedes acceder a elementos individuales de un vector o data frame utilizando corchetes [].
+
+# MATRICES
+Las matrices se parecen a los vectores, pero tienen filas y columnas.
+Se alimentan de vectores
+```{r}
+# Crear una matriz de 10x10 con números enteros aleatorios entre 1 y 100
+mi_matriz_a <- matrix(sample(1:100, size = 100, replace = TRUE), nrow = 10, ncol = 10)
+
+# Imprimir la matriz
+print(mi_matriz_a)
+```
+
+
+
+Como traer la fila 4 completa?
+
+```{r}
+mi_matriz_a[ 4 , ]
+```
+
+
+Como traer la columna 4 completa?
+```{r}
+mi_matriz_a[  ,4 ]
+```
+
+
+
+```{r}
+start_time <- Sys.time()
+mi_matriz_a
+end_time <- Sys.time()
+
+end_time -start_time
+
+```
